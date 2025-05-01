@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2x2 Image Grid with Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns */
+            grid-gap: 20px; /* Space between items */
+            padding: 20px;
+        }
+        .image-card {
+            text-align: center;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .image-card:hover {
+            transform: scale(1.05);
+        }
+        .image-card img {
+            width: 100%;
+            border-radius: 10px;
+            height: auto;
+        }
+        .image-card h3 {
+            font-size: 18px;
+            margin: 10px 0 5px;
+            color: #333;
+        }
+        .image-card .price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #007bff;
+            margin: 5px 0;
+        }
+        .image-card .rating {
+            color: #FFD700; /* Gold stars */
+            margin: 5px 0;
+        }
+        .image-card .rating span {
+            color: #ccc; /* Gray stars for empty */
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; margin: 20px 0;">Jersey Collection</h1>
+    <div class="image-grid">
+        <!-- Card 1 -->
+        <div class="image-card">
+            <img src="view3.jpg" alt="Real Madrid Jersey">
+            <h3>Real Madrid 2010-11 Home</h3>
+            <p class="price">Rs 1500</p>
+            <p class="rating">★★★★★<span>☆</span></p>
+        </div>
+        <!-- Card 2 -->
+        <div class="image-card">
+            <img src="3.jpg" alt="Arsenal Jersey">
+            <h3>Arsenal FC 2005-06 Home Kit</h3>
+            <p class="price">Rs 1500</p>
+            <p class="rating">★★★★<span>☆☆</span></p>
+        </div>
+        <!-- Card 3 -->
+        <div class="image-card">
+            <img src="11.jpg" alt="Manchester City Jersey">
+            <h3>Manchester City 1999-2001 Home</h3>
+            <p class="price">Rs 1500</p>
+            <p class="rating">★★★<span>☆☆☆</span></p>
+        </div>
+        <!-- Card 4 -->
+        <div class="image-card">
+            <img src="j4.jpg" alt="Manchester United Jersey">
+            <h3>1996-98 Manchester United Home</h3>
+            <p class="price">Rs 1500</p>
+            <p class="rating">★★★★★</p>
+        </div>
+    </div>
+</body>
+</html>

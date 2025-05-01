@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .cart {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-details {
+            flex: 1;
+        }
+
+        .item-name {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .item-price {
+            color: #888;
+            font-size: 16px;
+        }
+
+        .remove-button {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .remove-button:hover {
+            background-color: #e60000;
+        }
+
+        .subtotal {
+            text-align: right;
+            font-size: 20px;
+            margin: 20px 0;
+        }
+
+        .checkout-button {
+            display: block;
+            width: 100%;
+            background-color: #28a745;
+            color: white;
+            font-size: 18px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .checkout-button:hover {
+            background-color: #218838;
+        }
+
+        .order-summary {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .order-summary h2 {
+            text-align: center;
+        }
+
+        .order-details {
+            margin: 20px 0;
+        }
+
+        .order-details p {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+
+        .payment-options button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .payment-options .esewa {
+            background-color: #34a853;
+            color: white;
+        }
+
+        .payment-options .khalti {
+            background-color: #563d7c;
+            color: white;
+        }
+
+        .payment-options .fonepay {
+            background-color: #ff6f00;
+            color: white;
+        }
+
+        .home-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            display: block;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .home-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Shopping Cart</h1>
+    <div class="cart" id="cart">
+        
+    </div>
+
+    <div class="order-summary" id="order-summary">
+        <h2>Order Summary</h2>
+        <div class="order-details">
+            <p><span>Subtotal:</span> <span id="subtotal"></span></p>
+            <p><span>Tax (10%):</span> <span id="tax"></span></p>
+            <p><span>Shipping:</span> <span id="shipping"></span></p>
+            <p><span>Discount:</span> <span id="discount"></span></p>
+            <hr>
+            <p><strong><span>Total:</span> <span id="total"></span></strong></p>
+        </div>
+        <div class="payment-options">
+            <button class="esewa" onclick="window.location.href='https://www.esewa.com.np'">Pay with eSewa</button>
+            <button class="khalti" onclick="window.location.href='https://www.khalti.com'">Pay with Khalti</button>
+            <button class="fonepay" onclick="window.location.href='https://www.fonepay.com'">Pay with FonePay</button>
+        </div>
+        <button class="home-button" onclick="goBackToHome()">Back to Home</button>
+    </div>
+
+    <script>
+        let cartItems = [
+            { id: 1, name: "Item 1", price: 1999 },  
+            { id: 2, name: "Item 2", price: 999 },
+            { id: 3, name: "Item 3", price: 1499 }
+        ];
+
+        function renderCart() {
+            const cartContainer = document.getElementById('cart');
+            cartContainer.innerHTML = '';
+
+            let subtotal = 0;
+
+            cartItems.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'cart-item';
+
+                const itemDetails = document.createElement('div');
+                itemDetails.className = 'item-details';
+
+                const itemName = document.createElement('p');
+                itemName.className = 'item-name';
+                itemName.textContent = item.name;
+
+                const itemPrice = document.createElement('p');
+                itemPrice.className = 'item-price';
+                itemPrice.textContent = `₹${item.price.toFixed(2)}`;  
+                itemDetails.appendChild(itemName);
+                itemDetails.appendChild(itemPrice);
+
+                const removeButton = document.createElement('button');
+                removeButton.className = 'remove-button';
+                removeButton.textContent = 'Remove';
+                removeButton.onclick = () => removeItem(item.id);
+
+                itemDiv.appendChild(itemDetails);
+                itemDiv.appendChild(removeButton);
+
+                cartContainer.appendChild(itemDiv);
+
+                subtotal += item.price;
+            });
+
+            const subtotalDiv = document.createElement('div');
+            subtotalDiv.className = 'subtotal';
+            subtotalDiv.textContent = `Subtotal: ₹${subtotal.toFixed(2)}`;  
+            cartContainer.appendChild(subtotalDiv);
+
+            const checkoutButton = document.createElement('button');
+            checkoutButton.className = 'checkout-button';
+            checkoutButton.textContent = 'Proceed to Checkout';
+            checkoutButton.onclick = () => renderOrderSummary(subtotal);
+            cartContainer.appendChild(checkoutButton);
+        }
+
+        function renderOrderSummary(subtotal) {
+            const cartContainer = document.getElementById('cart');
+            const orderSummary = document.getElementById('order-summary');
+            cartContainer.style.display = 'none';
+            orderSummary.style.display = 'block';
+
+            const tax = subtotal * 0.1;
+            const shipping = 100;  // Shipping cost in Rs
+            const discount = subtotal > 5000 ? 500 : 0;
+            const total = subtotal + tax + shipping - discount;
+
+            document.getElementById('subtotal').textContent = `₹${subtotal.toFixed(2)}`;
+            document.getElementById('tax').textContent = `₹${tax.toFixed(2)}`;
+            document.getElementById('shipping').textContent = `₹${shipping.toFixed(2)}`;
+            document.getElementById('discount').textContent = `₹${discount.toFixed(2)}`;
+            document.getElementById('total').textContent = `₹${total.toFixed(2)}`;
+        }
+
+        function removeItem(id) {
+            cartItems = cartItems.filter(item => item.id !== id);
+            renderCart();
+        }
+
+        function goBackToHome() {
+            alert('Going back to home...');
+            location.reload();
+        }
+
+        renderCart();
+    </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jersey</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .item {
+            flex: 0 0 calc(50% - 20px);
+            box-sizing: border-box;
+            text-align: center;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease; /* Smooth scaling for the entire item */
+        }
+        .item:hover {
+            transform: scale(1.05); /* Slight zoom for the entire item on hover */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+        }
+        .item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transformation */
+        }
+        .item img:hover {
+            transform: scale(1.1); /* Zoom in the image slightly */
+            opacity: 0.9; /* Add slight transparency */
+        }
+        .item p {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #333;
+        }
+        .item .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .item .rating {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #FFD700; /* Gold for stars */
+        }
+        .item .rating span {
+            color: #ccc; /* Gray for unselected stars */
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; margin: 17px 0; font-size: 36px;">Jersey</h1>
+    <div class="container">
+        <div class="item">
+            <a href="real-madrid-2010.html">
+            <img src="view2.jpg" alt="Real Madrid 2010-11 Home"></a>
+            <p>Real Madrid 2010-11 Home</p>
+            <p class="rating">★★★★★<span>☆</span></p> <!-- 5 stars, 1 empty -->
+            <p class="price">Rs 1500</p>
+        </div>
+        <div class="item">
+            <a href="arsenal.html">
+            <img src="view3.jpg" alt="Arsenal FC 2005-06 Home Kit"></a>
+            <p>Arsenal FC 2005-06 Home Kit</p>
+            <p class="rating">★★★★<span>☆☆</span></p> <!-- 4 stars, 2 empty -->
+            <p class="price">Rs 1600</p>
+        </div>
+        <div class="item">
+            <a href="man-city-1999.html"> 
+            <img src="view4.jpg" alt="Manchester City Home 1999 2001 Retro Jersey"></a>
+            <p>Manchester City Home 1999 2001 Retro Jersey</p>
+            <p class="rating">★★★<span>☆☆☆</span></p> <!-- 3 stars, 3 empty -->
+            <p class="price">Rs 1700</p>
+        </div>
+        <div class="item">
+            <a href="man-utd-1996.html">
+            <img src="view5.jpg" alt="1996-98 Manchester United Home"></a>
+            <p>1996-98 Manchester United Home</p>
+            <p class="rating">★★★★★</p> <!-- 5 stars -->
+            <p class="price">Rs 1800</p>
+        </div>
+        <div class="container">
+            <!-- Item 1 -->
+            <div class="item">
+                <a href=" liverpool 2022-23 home match.html"> 
+                <img src="view6.jpg" alt="Shirt 1"></a>
+                <p> Liverpool 2022-23 home match</p>
+                <div class="rating">
+                ★★★★★</p> <!-- 5 stars -->
+                </div>
+                <div class="price">Rs 1700</div>
+            </div>
+            
+            <!-- Item 2 -->
+            <div class="item">
+                <a href="Manchester City Home Jersey.html">
+                <img src="view7.webp" alt="Shirt 2"></a>
+                <p> Manchester City Home Jersey</p>
+                <div class="rating">
+                ★★★★★</p> <!-- 5 stars -->
+                </div>
+                <div class="price">Rs1600</div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

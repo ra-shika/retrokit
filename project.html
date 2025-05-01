@@ -1,0 +1,235 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .icon-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 50px;
+        }
+
+        .icon-container img {
+            width: 100px; 
+            height: 100px;
+            border-radius: 50%; 
+            cursor: pointer;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-box {
+            padding: 60px; 
+            height: auto;
+            width: auto;
+            border-radius: 50px;
+            width: 1000px; 
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            background-color: white; 
+
+        .form-box input {
+            width: 100%;
+            padding: 15px; 
+            font-size: 50px; 
+            margin: 20px 0;
+            border-radius: 8px; 
+            border: 10px solid #ddd;
+        }
+
+        .form-box button {
+            padding: 15px 20px; 
+            font-size: 50px; 
+            font-weight: bold;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .form-box button:hover {
+            background-color: #218838;
+        }
+
+        .form-toggle {
+            cursor: pointer;
+            color: #007bff;
+            text-decoration: underline;
+            font-size: 50px; 
+            margin-top: 15px;
+        }
+
+        .close-form {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 100px; 
+            color: #333;
+            cursor: pointer;
+        }
+
+        #form-title {
+            font-size: 60px; 
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="icon-container">
+        <img src="profile.jpg" alt="Login" onclick="openForm()">
+        <a href="cart.html">
+            <img src="cart.jpg" alt="Cart">
+        </a>
+    </div>
+    <div class="overlay" id="overlay" onclick="closeForm(event)">
+        <div class="form-box" onclick="event.stopPropagation()">
+            <span class="close-form" onclick="closeForm()">×</span>
+            <h2 id="form-title">Login</h2>
+            <form id="auth-form">
+                <input type="text" id="phone-number" placeholder="Phone Number" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Submit</button>
+            </form>
+            <p class="form-toggle" onclick="toggleForm()">Don't have an account? Sign Up</p>
+        </div>
+    </div>
+
+    <script>
+        function openForm() {
+            document.getElementById('overlay').style.display = 'flex';
+        }
+
+        function closeForm(event) {
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        function toggleForm() {
+            const formTitle = document.getElementById('form-title');
+            const formToggle = document.querySelector('.form-toggle');
+            if (formTitle.innerText === 'Login') {
+
+formTitle.innerText = 'Sign Up';
+                formToggle.innerText = 'Already have an account? Login';
+            } else {
+                formTitle.innerText = 'Login';
+                formToggle.innerText = "Don't have an account? Sign Up";
+            }
+        }
+    </script>
+
+<h1 style="text-align: center; font-size: 300px; font-weight: bold; font-family:'times new roman', sans-serif;
+background: url('jer3.jpg') center/cover; color: red ; padding: 500px;";"> RETRO KIT NEPAL </h1>
+
+
+<p style="text-align: center; font-family: Arial, sans-serif; font-size: 100px; color: white; margin-top: -700px;">
+                    Stand out the crowd, Stand Up for the Game </p>              
+                    <div style="text-align: center;font-size: 200; margin-top: 0px;">
+                        <div class="nav-links"></div>
+<a href="project.html" style="color: white; text-align: center; font-size:80px; text-decoration: none;";>Home</a> |
+<a href="new-arrivals.html" style="color: white; text-align: center; font-size:80px; text-decoration: none;">New Arrivals</a>  |
+   <a href="view1.html" style="color: white; text-align: center; font-size:80px; text-decoration: none;">Jerseys</a>|
+   <a href="sale.html" style="color: white; text-align: center; font-size:80px; text-decoration: none;">Sale</a>
+                    </div>
+<p style="text-align: center; font-family: times new roman,sans-serif; font-size: 100px; text-decoration: underline; text-decoration: thickness: 2x; text-decoration: color:red ; color: Black; margin-top: 300px;">
+                    New Arrivals </p>                    
+                    <div style="display: flex; gap: 150px; text-align: center;">
+                     <div>
+                         <img src="view3.jpg" style="height: 1190px; object-fit: cover;">
+                         <p style="margin: 5px 0; font-size: 100px; font-weight: bold;">Rs 1500 </p>
+                     </div>
+                     <div>
+                         <img src="3.jpg" style="height: 1190px; object-fit: cover;">
+                         <p style="margin: 5px 0;font-size: 100px; font-weight: bold;">Rs 1500</p>
+                     </div>
+                     <div>
+                         <img src="11.jpg" style="height: 1190px; object-fit: cover;">
+                         <p style="margin: 5px 0;font-size: 100px; font-weight: bold;">Rs 1500</p>
+                     </div>
+                     <div>
+                         <img src="j4.jpg" style="height: 1190px; object-fit: cover;">
+                         <p style="margin: 5px 0;font-size: 100px; font-weight: bold;">Rs 1500</p>
+                     </div>
+                 </div>              
+                 
+                 <div style="position: relative; display: inline-block;"><img src="00.jpg" style="width: 5000px; height: 2000px;"><p style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 200px; font-weight: bold; margin: 0;">COLLECTION</p><a href="view1.html" style="position: absolute; top: 70%; left: 50%; transform: translateX(-50%); background-color: white; paddinh:20px 45px 20px 45px; color:black;font-size: 100px; text-decoration: none;">VIEW</a></div>
+      
+<div style="display: flex; 
+            font-size: 70px; 
+            gap: 50px; 
+            align-items: center;">
+    <img src="r.jpg" style="width: 1500px; height: 900px;">
+    <img src="rr.jpg" style="width: 1500px; height: 900px;">
+    
+
+    <p style="margin-bottom: 500px; text-align: justify;">
+        Twice as cozy <br> 
+        At Retrokit Nepal, we offer a curated selection of authentic and high-quality<br> 
+        jerseys. Our mission is to provide sports enthusiasts with the latest and greatest<br>
+        retro-inspired sportswear, helping them show their team spirit in style.<br>
+        Browse our collection and discover the perfect jersey to elevate
+        your game-day experience.
+    </p>
+</div>
+<hr>
+</hr>
+<div style="display: flex; justify-content: space-around; align-items: flex-start; font-size: 50px; gap: 30px;">
+   
+   <div style="text-align: center;">
+       <p style="margin: 0; font-weight: bold; font-size: 80px;">Our Story</p>
+       <a href="about-us.html" style="text-decoration: underline; color: black; font-size: 50px;">Our Story</a>
+   </div>
+   
+   
+   <div style="text-align: center;">
+      <h2 style="margin: 0; font-size: 80px;">Customer Service</h2>
+      <a href="contact-us.html" style="text-decoration: underline; color: black; font-size: 50px;">Contact Us</a>
+      
+      <div style="margin-top: 20px;">
+         <p style="text-decoration: underline; font-size: 50px; color: black;">Payment Options</p>
+         
+         <div style="margin-top: 10px;">
+            <a href="https://www.khalti.com" target="_blank">
+                <img src="khalti.jpg" alt="Khalti" style="width: 300px; margin: 10px;">
+            </a>
+            <a href="https://www.esewa.com.np" target="_blank">
+                <img src="esewa.jpg" alt="eSewa" style="width: 300px; margin: 10px;">
+            </a>
+            <a href="https://www.fonepay.com" target="_blank">
+                <img src="fonepay1.png" alt="Fonepay" style="width: 300px; margin: 10px;">
+            </a>
+         </div>
+      </div>
+   </div>
+   
+   
+   <div style="text-align: center;">
+       <h2 style="margin: 0; font-size: 80px;">Call Us</h2>
+       <div style="margin-top: 20px;">
+         <p style="text-decoration: none; font-size: 50px; color: black;">Tel: 9811111111</p>
+         <p style="text-decoration: none; font-size: 50px; color: black;">Time: 10am-8pm</p>
+         <p style="text-decoration: none; font-size: 50px; color: black;">Email: retrokitnepal@gmail.com</p>
+       </div>
+</div>
+</div>
